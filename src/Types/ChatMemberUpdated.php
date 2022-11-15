@@ -11,7 +11,7 @@ class ChatMemberUpdated extends BaseType
      *
      * @var array
      */
-    static protected $requiredParams = ['chat', 'from', 'date', 'old_Cat_Mmber', 'new_chat_member'];
+    static protected $requiredParams = ['chat', 'from', 'date', 'old_chat_member', 'new_chat_member'];
 
     /**
      * {@inheritdoc}
@@ -22,9 +22,9 @@ class ChatMemberUpdated extends BaseType
         'chat' => Chat::class,
         'from' => User::class,
         'date' => true,
-        'old_chat_member' => true,
-        'new_chat_member' => true,
-        'invite_link' => true,
+        'old_chat_member' => ChatMember::class,
+        'new_chat_member' => ChatMember::class,
+        'invite_link' => ChatInviteLink::class,
     ];
 
     /**
