@@ -2015,6 +2015,48 @@ class BotApi
     }
 
     /**
+     * Use this method to approve a chat join request. The bot must be an administrator in the chat
+     * for this to work and must have the can_invite_users administrator right.
+     * Returns True on success.
+     *
+     * @param int|string $chatId
+     * @param int $userId
+     * @return bool
+     * @throws \TelegramBot\Api\InvalidArgumentException
+     * @throws \TelegramBot\Api\Exception
+     */
+    public function approveChatJoinRequest(
+        $chatId,
+        $userId
+    ) {
+        return $this->call('approveChatJoinRequest', [
+            'chat_id' => $chatId,
+            'user_id' => $userId,
+        ]);
+    }
+
+    /**
+     * Use this method to decline a chat join request. The bot must be an administrator in the chat
+     * for this to work and must have the can_invite_users administrator right.
+     * Returns True on success.
+     *
+     * @param int|string $chatId
+     * @param int $userId
+     * @return bool
+     * @throws \TelegramBot\Api\InvalidArgumentException
+     * @throws \TelegramBot\Api\Exception
+     */
+    public function declineChatJoinRequest(
+        $chatId,
+        $userId
+    ) {
+        return $this->call('declineChatJoinRequest', [
+            'chat_id' => $chatId,
+            'user_id' => $userId,
+        ]);
+    }
+
+    /**
      * Set an option for a cURL transfer
      *
      * @param int $option The CURLOPT_XXX option to set
